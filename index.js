@@ -1,22 +1,23 @@
-const express=require('express')
+const express = require('express')
 // for deployment
-const PORT=8000; 
-const app=express()
-const mongoose=require('./config/mongoose')
-const session=require('express-session')
+const PORT = 8000;
+const app = express()
+const mongoose = require('./config/mongoose')
+const session = require('express-session')
 require('dotenv').config()
 
 
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
-app.use(session({ cookie: { maxAge: 60000 }, 
+app.use(session({
+    cookie: { maxAge: 60000 },
     secret: 'garimaJain',
-    resave: false, 
+    resave: false,
     saveUninitialized: false
 }));
 
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 // app.use(dotenv)
 
 app.set('view engine', 'ejs');
@@ -26,12 +27,12 @@ app.use(flash());
 app.use(customMware.setFlash);
 
 
-app.use('/',require('./routes/index.js'))
+app.use('/', require('./routes/index.js'))
 
-app.listen(PORT,function(err){
-    if(err){
-        console.log("error in runing the port server ",err )
+app.listen(PORT, function (err) {
+    if (err) {
+        console.log("error in runing the port server ", err)
     }
 
-    console.log("hey your port is runing .....",PORT)
+    console.log("hey your port is runing .....", PORT)
 })

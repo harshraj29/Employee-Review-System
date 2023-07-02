@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- noty js links -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+  <!-- noty js links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
-    rel="stylesheet"
-    />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
 
-    <title>Employee Review System</title>
+  <title>Employee Review System</title>
 </head>
+
 <body>
 
-    <!-- Section: Design Block -->
-<section class="background-radial-gradient overflow-hidden my">
+  <!-- Section: Design Block -->
+  <section class="background-radial-gradient overflow-hidden my">
     <style>
-      .my{
+      .my {
         height: 100vh;
       }
+
       .background-radial-gradient {
         background-color: hsl(218, 41%, 15%);
         background-image: radial-gradient(650px circle at 0% 0%,
@@ -73,12 +67,21 @@
       }
 
       .bg-glass {
-        background-color: hsla(0, 0%, 100%, 0.9) !important;
+        /* background-color: hsla(0, 0%, 100%, 0.9) !important; */
+        background-color: unset;
+        color: aliceblue;
         backdrop-filter: saturate(200%) blur(25px);
       }
+      .form-control{
+        color: aliceblue !important;
+      }
+      input[name="name"] {
+  color: red; /* Change the color value to your desired color */
+}
     </style>
 
-    <div class="container px-4 py-5 px-md-5 text-center text-lg-center my-5"> <!-- Modified class from "text-lg-start" to "text-lg-center" -->
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-center my-5">
+      <!-- Modified class from "text-lg-start" to "text-lg-center" -->
       <div class="row gx-lg-5 align-items-center justify-content-center mb-5">
 
         <div class="mb-5 mb-lg-0 position-relative" style="width: 60%;">
@@ -92,7 +95,7 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="form3Example1" class="form-control" name="name" required/>
+                      <input type="text" id="form3Example1" class="form-control" name="name" required />
                       <label class="form-label" for="form3Example1" placeholder="Your Name">Name</label>
                     </div>
                   </div>
@@ -100,18 +103,18 @@
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" name="email" required/>
+                  <input type="email" id="form3Example3" class="form-control" name="email" required />
                   <label class="form-label" for="form3Example3" placeholder="Your Email">Email address</label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" name="password" required/>
-                  <label class="form-label" for="form3Example4"  placeholder="Password">Password</label>
+                  <input type="password" id="form3Example4" class="form-control" name="password" required />
+                  <label class="form-label" for="form3Example4" placeholder="Password">Password</label>
                 </div>
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" name="confirm_password" required/>
-                  <label class="form-label" for="form3Example4" placeholder="Confirm Password" >Confirm Password</label>
+                  <input type="password" id="form3Example4" class="form-control" name="confirm_password" required />
+                  <label class="form-label" for="form3Example4" placeholder="Confirm Password">Confirm Password</label>
                 </div>
 
                 <!-- Checkbox -->
@@ -156,28 +159,29 @@
   <!-- for flash messsages -->
   <script>
     <% if (flash.success && flash.success.length > 0) {%>
-        new Noty({
-            theme: 'relax',
-            text: "<%= flash.success %>",
-            type: 'success',
-            layout: 'topRight',
-            timeout: 1500
-            
-        }).show();    
+      new Noty({
+        theme: 'relax',
+        text: "<%= flash.success %>",
+        type: 'success',
+        layout: 'topRight',
+        timeout: 1500
+
+      }).show();    
     <%} %>
 
     <% if (flash.error && flash.error.length > 0) {%>
-        new Noty({
-            theme: 'relax',
-            text: "<%= flash.error %>",
-            type: 'error',
-            layout: 'topRight',
-            timeout: 1500
-            
-        }).show();    
-    <%} %>
-</script>
+      new Noty({
+        theme: 'relax',
+        text: "<%= flash.error %>",
+        type: 'error',
+        layout: 'topRight',
+        timeout: 1500
 
-   
+      }).show();    
+    <%} %>
+  </script>
+
+
 </body>
+
 </html>
